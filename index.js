@@ -59,11 +59,12 @@ const daftarProduk = [
 
 const checkboxPria = document.getElementById('cekBajuPria');
 const checkboxWanita = document.getElementById('cekBajuWanita');
+const searchButton = document.getElementById("searchButton");
+const searchText = document.getElementById("text-search");
 
 ambilProduk(daftarProduk);
 
-
-// ----------------- EVENT CHECKBOX LISTENER ---------------------------------------
+// ----------------- EVENT LISTENER ---------------------------------------
 checkboxPria.addEventListener('change', (event) => {
     if (event.target.checked) {
         filter('Baju Pria')
@@ -79,7 +80,20 @@ checkboxWanita.addEventListener('change', (event) => {
         ambilProduk(daftarProduk)
     }
 });
-// ----------------- END OF EVENT CHECKBOX LISTENER ---------------------------------
+
+searchButton.addEventListener("click", function () {
+    console.log("Button clicked!");
+    if (searchText.value !== '') {
+        searchProduct(searchText.value)
+        searchText.value = ''
+    } else {
+        alert('Mau Cari Apaan Ngab ? Isi Dulu Kali');
+        ambilProduk(daftarProduk)
+    }
+});
+// ----------------- END OF EVENT LISTENER ---------------------------------
+
+
 
 function clearData() {
     const parentCards = document.getElementById('cards');
@@ -125,7 +139,6 @@ function ambilProduk(daftarProduk) {
 function filter(data) {
     clearData()
     for (produk of daftarProduk) {
-
         if (data == '' || !data) {
             ambilProduk(daftarProduk)
         }
@@ -204,4 +217,41 @@ function filter(data) {
 }
 
 
+function searchProduct(searchTerm) {
+    const filteredProducts = daftarProduk.filter((produk) => {
+        return produk.namaProduk.toLowerCase().includes(searchTerm.toLowerCase());
+    });
+    clearData()
+    for (produk of filteredProducts) {
+        // membuat card
+        let card = document.createElement("div")
+        card.classList.add("card")
+        card.setAttribute("id", produk.id)
 
+        // memasukkan gambar produk
+        let img = document.createElement('img')
+        img.src = produk.img
+        img.width = "220"
+        img.height = "150"
+        // img.style.objectFit = "cover"
+        card.appendChild(img)
+
+        // memasukkan nama produk
+        let nama = document.createElement('span')
+        nama.classList.add('nama-barang')
+        nama.innerHTML = `<b>${produk.namaProduk}</b>`
+        card.appendChild(nama)
+
+        // memasukkan harga produk
+        let harga = document.createElement('span')
+        harga.classList.add('harga-barang') // !! Butuh class baru
+        harga.innerHTML = `<b>${produk.harga}</b>`
+        card.appendChild(harga)
+
+        // bikin hot item
+        let stok = document.createElement('span')
+        stok.classList.add('stok-barang') // 
+
+        cards.appendChild(card)
+    }
+}
