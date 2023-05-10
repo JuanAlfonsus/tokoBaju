@@ -3,6 +3,9 @@ body{
     box-sizing: border-box;
     padding: 20px;
     font-family: 'Roboto Condensed', sans-serif;
+    background: green;
+    box-sizing: border-box;
+    padding: 20px;
 }
 
 .container{
@@ -33,6 +36,16 @@ body{
 
 #brand{
     margin-right: 150px;
+    background-color: black;
+    justify-content: space-around;
+}
+
+#logo{
+    width: 75px;
+    height: 75px;
+    background-color: white;
+    margin: 10px;
+    
 }
 
 #logo-hacktiv{
@@ -49,6 +62,7 @@ body{
     width: 700px;
     height: 75px;
     /* background-color: white; */
+    background-color: white;
     margin: 10px;
     flex-direction: row;
 }
@@ -78,6 +92,7 @@ body{
     width: 75px;
     height: 75px;
     background-color: #F5EBE0;
+    background-color: white;
     margin: 10px;
 }
 
@@ -101,6 +116,7 @@ body{
 
 .fa-cog{
     color: #DBA39A;
+    background-color: black;
 }
 
 ul{
@@ -123,6 +139,7 @@ ul, li { /* reset the margin and padding */
     flex-direction: column;
     width: 11%;
     height: 300px;
+    background-color: white;
 }
 
 .filter-list{
@@ -136,6 +153,7 @@ ul, li { /* reset the margin and padding */
     flex-direction: row;
     width: 100%;
     /* height: 70%; */
+    background-color: white;
 }
 
 .card{
