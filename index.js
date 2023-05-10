@@ -56,24 +56,35 @@ let cards = document.getElementById("cards")
 // cards.appendChild(card)
 // cards.appendChild(card2)
 
-for(produk of daftarProduk){
-    let card = document.createElement("div")
-    card.classList.add("card")
+function ambilProduk(daftarProduk) {
+    for(produk of daftarProduk){
+        let card = document.createElement("div")
+        card.classList.add("card")
+        card.setAttribute("id", produk.id)
 
 
-    let img = document.createElement('img')
-    img.src = produk.img
-    img.width = "220"
-    img.height = "150"
-    // img.style.objectFit = "cover"
-    card.appendChild(img)
+        let img = document.createElement('img')
+        img.src = produk.img
+        img.width = "220"
+        img.height = "150"
+        // img.style.objectFit = "cover"
+        card.appendChild(img)
 
-    // bikin nama produk
-    let nama = document.createElement('span')
-    nama.classList.add('nama-barang')
-    nama.innerHTML = `<b>${produk.namaProduk}</b>`
-    card.appendChild(nama)
+        // bikin nama produk
+        let nama = document.createElement('span')
+        nama.classList.add('nama-barang')
+        nama.innerHTML = `<b>${produk.namaProduk}</b>`
+        card.appendChild(nama)
 
-    cards.appendChild(card)
+        // bikin harga produk
+        let harga = document.createElement('span')
+        harga.classList.add('nama-barang')
+        harga.innerHTML = `<b>${produk.harga}</b>`
+        card.appendChild(harga)
+        // 
+
+        cards.appendChild(card)
+    }
 }
 
+ambilProduk(daftarProduk);
