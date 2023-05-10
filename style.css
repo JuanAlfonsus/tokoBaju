@@ -1,7 +1,8 @@
 body{
-    background: green;
+    background: #FEFCF3;
     box-sizing: border-box;
     padding: 20px;
+    font-family: 'Roboto Condensed', sans-serif;
 }
 
 .container{
@@ -16,16 +17,22 @@ body{
     display: flex;
     flex-direction: row;
     height: 100px;
-    background-color: black;
+    background-color: #F5EBE0;
     justify-content: space-around;
+    border-radius: 20px;
+    
 }
 
 #logo{
+    display: flex;
     width: 75px;
     height: 75px;
-    background-color: white;
     margin: 10px;
-    
+    padding: 5px;
+}
+
+#brand{
+    margin-right: 150px;
 }
 
 #logo-hacktiv{
@@ -41,7 +48,7 @@ body{
     flex-direction: row;
     width: 700px;
     height: 75px;
-    background-color: white;
+    /* background-color: white; */
     margin: 10px;
     flex-direction: row;
 }
@@ -51,6 +58,9 @@ body{
     border: none;
     /* margin-top: 8px; */
     /* margin-right: 16px; */
+    background-color: #F5EBE0;
+    border-radius: 20px;
+    border: 2px solid #DBA39A;
     font-size: 17px;
     width: 90%;
 }
@@ -60,13 +70,14 @@ body{
     height: 75px;
     align-items: flex-end;
     padding: 0;
+    border-radius: 20px;
     /* margin-left: 10px; */
 }
 
 #cart{
     width: 75px;
     height: 75px;
-    background-color: white;
+    background-color: #F5EBE0;
     margin: 10px;
 }
 
@@ -83,7 +94,13 @@ body{
     flex-direction: row;
     width: 100%;
     /* height: 70%; */
-    background-color: black;
+    background-color: #F5EBE0;
+    border-radius: 20px;
+    
+}
+
+.fa-cog{
+    color: #DBA39A;
 }
 
 ul{
@@ -106,7 +123,6 @@ ul, li { /* reset the margin and padding */
     flex-direction: column;
     width: 11%;
     height: 300px;
-    background-color: white;
 }
 
 .filter-list{
@@ -120,7 +136,6 @@ ul, li { /* reset the margin and padding */
     flex-direction: row;
     width: 100%;
     /* height: 70%; */
-    background-color: white;
 }
 
 .card{
@@ -133,11 +148,19 @@ ul, li { /* reset the margin and padding */
     background-color: red;
     /* justify-content: center; */
     align-items: center;
+    background-color: #FEFCF3;
+    box-shadow: 7px 7px 3px #DBA39A;
+    color: black;
+}
+
+.card:hover{
+    box-shadow: 12px 12px 5px #DBA39A;
 }
 
 img{
     margin-top: 20px;
     margin-bottom: 20px;
+    border: 2px solid #DBA39A;
 }
 
 .nama-barang{

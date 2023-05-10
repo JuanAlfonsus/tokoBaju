@@ -39,6 +39,7 @@ let cards = document.getElementById("cards")
 // cards.appendChild(card)
 // cards.appendChild(card2)
 
+
 for(produk of daftarProduk){
     let card = document.createElement("div")
     card.classList.add("card")
