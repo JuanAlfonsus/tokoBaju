@@ -1,4 +1,5 @@
 const daftarProduk = [
+
     { id: 1, namaProduk: "Baju Koko", tipe: "Baju", gender: 1, stock: 50, img: "produk/bajukoko.jpg", harga: 85000 },
     { id: 2, namaProduk: "Baju Kebaya", tipe: "Baju", gender: 2, stock: 31, img: "produk/kebaya.jpg", harga: 82000 },
     { id: 3, namaProduk: "Celana Pantai", tipe: "Celana", gender: 2, stock: 23, img: "produk/celana pantai.jpg", harga: 30000 },
@@ -18,7 +19,7 @@ const daftarProduk = [
     { id: 17, namaProduk: "Baju Adimas", tipe: "Baju", gender: 0, stock: 45, img: "produk/adimas.jpg", harga: 85000 },
     { id: 18, namaProduk: "Rok Mimi", tipe: "Baju", gender: 2, stock: 78, img: "produk/rok mimi.jpg", harga: 82000 },
     { id: 19, namaProduk: "Celana Cut Slay", tipe: "Celana", gender: 2, stock: 56, img: "produk/cutslay.jpg", harga: 30000 },
-    { id: 20, namaProduk: "Celana Korporat65", tipe: "Celana", gender: 1, stock: 21, img: "produk/celanakorporat.jpg", harga: 38000 },
+    { id: 20, namaProduk: "Celana Korporat65", tipe: "Celana", gender: 1, stock: 21, img: "produk/celanakorporat.jpg", harga: 38000 }
 ]
 
 console.log(daftarProduk)
@@ -55,9 +56,16 @@ let cards = document.getElementById("cards")
 // cards.appendChild(card)
 // cards.appendChild(card2)
 
+
 for (produk of daftarProduk) {
     let card = document.createElement("div")
     card.classList.add("card")
+
+for(produk of daftarProduk){
+    let card = document.createElement("div")
+    card.classList.add("card")
+
+
     let img = document.createElement('img')
     img.src = produk.img
     img.width = "220"
