@@ -58,11 +58,12 @@ let cards = document.getElementById("cards")
 
 function ambilProduk(daftarProduk) {
     for(produk of daftarProduk){
+        // membuat card
         let card = document.createElement("div")
         card.classList.add("card")
         card.setAttribute("id", produk.id)
 
-
+        // memasukkan gambar produk
         let img = document.createElement('img')
         img.src = produk.img
         img.width = "220"
@@ -70,18 +71,21 @@ function ambilProduk(daftarProduk) {
         // img.style.objectFit = "cover"
         card.appendChild(img)
 
-        // bikin nama produk
+        // memasukkan nama produk
         let nama = document.createElement('span')
         nama.classList.add('nama-barang')
         nama.innerHTML = `<b>${produk.namaProduk}</b>`
         card.appendChild(nama)
 
-        // bikin harga produk
+        // memasukkan harga produk
         let harga = document.createElement('span')
-        harga.classList.add('nama-barang')
+        harga.classList.add('harga-barang') // !! Butuh class baru
         harga.innerHTML = `<b>${produk.harga}</b>`
         card.appendChild(harga)
-        // 
+        
+        // bikin hot item
+        let stok = document.createElement('span')
+        stok.classList.add('stok-barang') // 
 
         cards.appendChild(card)
     }
