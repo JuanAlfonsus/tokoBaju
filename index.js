@@ -53,10 +53,13 @@ const cbWanitaAtasan = document.getElementById('wanitaAtasan');
 const cbWanitaBawahan = document.getElementById('wanitaBawahan');
 const searchButton = document.getElementById("searchButton");
 const searchText = document.getElementById("text-search");
+const searchTerm1 = document.getElementById('term-search1')
+const searchTerm2 = document.getElementById('term-search2')
 let checkboxfilter = []
 
 ambilProduk(daftarProduk);
-
+searchTerm1.innerHTML = 'All Products'
+searchTerm2.innerHTML = 'That Available'
 
 
 // ----------------- EVENT LISTENER ---------------------------------------
@@ -124,10 +127,13 @@ searchButton.addEventListener("click", function () {
     // console.log("Button clicked!");
     if (searchText.value !== '') {
         searchProduct(searchText.value)
+        searchTerm1.innerHTML = searchText.value
+        searchTerm2.innerHTML = `in Pria & Wanita`
         searchText.value = ''
     } else {
-        alert('Mau Cari Apaan Ngab ? Isi Dulu Kali');
-        ambilProduk(daftarProduk)
+        ambilProduk(daftarProduk);
+        searchTerm1.innerHTML = 'All Products';
+        searchTerm2.innerHTML = 'That Available';
     }
 });
 // ----------------- END OF EVENT LISTENER ---------------------------------
