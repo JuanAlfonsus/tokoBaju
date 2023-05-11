@@ -214,6 +214,10 @@ img{
     width: 50%;
 }
 
+.container-cards-p{
+    width: 100%;
+}
+
 form{
     font-size: 20px;
     font-weight: bold;
