@@ -130,6 +130,10 @@ searchButton.addEventListener("click", function () {
         searchTerm1.innerHTML = searchText.value
         searchTerm2.innerHTML = `in Pria & Wanita`
         searchText.value = ''
+        cbPriaAtasan.checked = false
+        cbPriaBawahan.checked = false
+        cbWanitaAtasan.checked = false
+        cbWanitaBawahan.checked = false
     } else {
         ambilProduk(daftarProduk);
         searchTerm1.innerHTML = 'All Products';
