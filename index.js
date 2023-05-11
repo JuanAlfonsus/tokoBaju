@@ -548,4 +548,4 @@ window.onclick = function(event) {
     if (event.target == modalPromo) {
         modalPromo.style.display = "none";
     }
-  }
+}

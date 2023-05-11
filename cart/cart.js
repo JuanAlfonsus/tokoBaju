@@ -6,6 +6,8 @@ let isiKeranjang = [
 
 isiKeranjang = JSON.parse(localStorage.isiKeranjang);
 
+let pinjemGrandTotal = 0
+
 function buatStruk(isiKeranjang) {
     // Mengakses tabel struk
     let tabelStruk = document.getElementsByClassName('table-struk')[0];
@@ -51,14 +53,80 @@ function buatStruk(isiKeranjang) {
         selTotalHarga.innerText = `${totalHarga}`;
         
         grandTotal += totalHarga
+        pinjemGrandTotal = grandTotal
     }    
 
     // Menghitung grand total
     let barisItem = tabelStruk.insertRow(-1);
     let judulGrandTotal = barisItem.insertCell(0);
     judulGrandTotal.setAttribute("colspan", "6");
+    judulGrandTotal.setAttribute("id", "grand-total");
     judulGrandTotal.innerHTML = `<b>Grand Total</b>`;
     barisItem.insertCell(1).innerHTML = `<b>${grandTotal}</b>`;
 }
 
 buatStruk(isiKeranjang);
+
+// const radioButton = document.querySelector('input[name="pembayaran"]:checked').value
+const buttonBayar = document.getElementById('button-bayar')
+const instruksiBca = document.getElementById('instruksi-bca')
+const instruksiQrcode = document.getElementById('instruksi-qrcode')
+const instruksiMandiri = document.getElementById('instruksi-mandiri')
+
+
+document.getElementById('button-bayar').onclick = function(){
+    radioButton = document.getElementsByName('pembayaran')
+    for(button of radioButton){
+        if(button.checked){
+            console.log(button.id)
+            if(button.id == "bca"){
+                instruksiBca.style.display = "block"
+                instruksiQrcode.style.display = "none"
+                instruksiMandiri.style.display = "none"
+            } else if(button.id == "mandiri"){
+                instruksiBca.style.display = "none"
+                instruksiQrcode.style.display = "none"
+                instruksiMandiri.style.display = "block"
+            } else if(button.id == "qrcode"){
+                instruksiBca.style.display = "none"
+                instruksiQrcode.style.display = "block"
+                instruksiMandiri.style.display = "none"
+            }
+        }
+    }
+}
+
+const modal100 = document.getElementById('100k')
+const modal200 = document.getElementById('200k')
+const modal300 = document.getElementById('300k')
+
+buttonBayar.addEventListener('click', function(){
+    if(pinjemGrandTotal > 100000){
+        modalPromo.style.display = "block"
+    }
+    if(pinjemGrandTotal > 300_000){
+        // console.log('Dapet mug')
+        modal300.style.display = "block"
+    } 
+    else if(pinjemGrandTotal > 200000){
+        modal200.style.display = "block"
+    } else if(pinjemGrandTotal > 100000){
+        modal100.style.display = "block"
+    }
+})
+
+const modalPromo = document.getElementById('modal-promo')
+const close = document.getElementsByClassName('close')[0]
+
+close.addEventListener('click', function(){
+    // console.log('test')
+    modalPromo.style.display = "none";
+})
+
+window.onclick = function(event) {
+    if (event.target == modalPromo) {
+        modalPromo.style.display = "none";
+    }
+}
+
+// console.log(pinjemGrandTotal)
