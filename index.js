@@ -22,40 +22,6 @@ const daftarProduk = [
     { id: 20, namaProduk: "Celana Korporat65", tipe: "Celana", gender: 1, stock: 21, img: "produk/celanakorporat.jpg", harga: 38000 }
 ]
 
-// console.log(daftarProduk)
-
-// let cards = document.getElementById("cards")
-// console.log(cards)
-// cards.innerHTML = ''
-
-// let card = document.createElement("div")
-// card.classList.add("card")
-// // card.innerHTML = ''
-// console.log(card)
-
-// let card2 = document.createElement("div")
-// card2.classList.add("card")
-// // card.innerHTML = ''
-// console.log(card2)
-
-// // let card = document.createElement("div")
-// // card.classList.add("card")
-
-// let img = document.createElement('img')
-// img.src = daftarProduk[0].img
-// img.width = "220"
-// img.height = "150"
-// img.style.objectFit = "cover"
-// card.appendChild(img)
-
-// bikin nama produk
-// let nama = document.createElement('p')
-// nama.innerHTML = `<b>${daftarProduk.namaProduk}</b>`
-// card.appendChild(nama)
-
-// cards.appendChild(card)
-// cards.appendChild(card2)
-
 
 const checkboxPria = document.getElementById('cekBajuPria');
 const checkboxWanita = document.getElementById('cekBajuWanita');
@@ -67,22 +33,38 @@ ambilProduk(daftarProduk);
 // ----------------- EVENT LISTENER ---------------------------------------
 checkboxPria.addEventListener('change', (event) => {
     if (event.target.checked) {
-        filter('Baju Pria')
+        if (checkboxWanita.checked) {
+            filter('Baju Wanita Pria')
+        } else {
+            filter('Baju Pria')
+        }
     } else {
-        ambilProduk(daftarProduk)
+        if (checkboxWanita.checked) {
+            filter('Baju Wanita')
+        } else {
+            ambilProduk(daftarProduk)
+        }
     }
 });
 
 checkboxWanita.addEventListener('change', (event) => {
     if (event.target.checked) {
-        filter('Baju Wanita') // KAYAKNYA CHECKBOX NYA MESTI DI GANTI
+        if (checkboxPria.checked) {
+            filter('Baju Wanita Pria')
+        } else {
+            filter('Baju Wanita')
+        }
     } else {
-        ambilProduk(daftarProduk)
+        if (checkboxPria.checked) {
+            filter('Baju Pria')
+        } else {
+            ambilProduk(daftarProduk)
+        }
     }
 });
 
 searchButton.addEventListener("click", function () {
-    console.log("Button clicked!");
+    // console.log("Button clicked!");
     if (searchText.value !== '') {
         searchProduct(searchText.value)
         searchText.value = ''
@@ -119,19 +101,60 @@ function ambilProduk(daftarProduk) {
         // memasukkan nama produk
         let nama = document.createElement('span')
         nama.classList.add('nama-barang')
-        nama.innerHTML = `<b>${produk.namaProduk}</b>`
+        nama.innerHTML = `<b>${produk.namaProduk}</b>` // !! bold mendingan masuk ke class ga sih?
         card.appendChild(nama)
+
+        // memasukkan penjual
+        let penjual = document.createElement('span')
+        penjual.classList.add('penjual')
+        penjual.innerText = `Penjual: ${produk.penjual}`
+        card.appendChild(penjual)
 
         // memasukkan harga produk
         let harga = document.createElement('span')
-        harga.classList.add('harga-barang') // !! Butuh class baru
-        harga.innerHTML = `<b>${produk.harga}</b>`
+        harga.classList.add('harga')
+        let hargaString = String(produk.harga)
+        if (hargaString.length > 3) {
+            let hargaStringDenganTitik = '';
+            let moduloTiga = hargaString.length % 3;
+            for (let i = 1; i <= hargaString.length; i++) {
+                if (i % 3 === moduloTiga & i !== hargaString.length) {
+                    hargaStringDenganTitik += hargaString[i - 1] + '.';
+                } else {
+                    hargaStringDenganTitik += hargaString[i - 1];
+                }
+            }
+            hargaString = hargaStringDenganTitik;
+        }
+
+        harga.innerText = `Rp ${hargaString},00`
         card.appendChild(harga)
 
-        // bikin hot item
+        // memasukkan stok item
         let stok = document.createElement('span')
-        stok.classList.add('stok-barang') // 
+        stok.classList.add('stock') // 
+        stok.innerText = `Stok: ${produk.stock}`
+        card.appendChild(stok)
 
+
+        // memasukkan tombol 'langsung beli' dan 'tambah keranjang'
+        let buttonCard = document.createElement('div')
+
+        let langsungBeli = document.createElement('button')
+        langsungBeli.classList.add('button') // belom ada class button
+        langsungBeli.setAttribute("id", `buttonLangsungBeli-${produk.id}`)
+        langsungBeli.innerText = 'Langsung Beli'
+        buttonCard.appendChild(langsungBeli)
+
+        let tambahKeranjang = document.createElement('button')
+        tambahKeranjang.classList.add('button')
+        tambahKeranjang.setAttribute("id", `buttonTambahKeranjang-${produk.id}`)
+        tambahKeranjang.innerText = 'Tambah Keranjang'
+        buttonCard.appendChild(tambahKeranjang)
+
+        card.appendChild(buttonCard) // tombol ga ada jarak
+
+        // memasukkan card ke dalam cards
         cards.appendChild(card)
     }
 }
@@ -140,80 +163,24 @@ function filter(data) {
     clearData()
     for (produk of daftarProduk) {
         if (data == '' || !data) {
-            ambilProduk(daftarProduk)
+            ambilProduk(daftarProduk);
         }
         else if (data == 'Baju Pria') {
             if (produk.tipe === 'Baju' && produk.gender == 1) {
-                console.log(produk.tipe)
-                // membuat card
-                let card = document.createElement("div")
-                card.classList.add("card")
-                card.setAttribute("id", produk.id)
-
-                // memasukkan gambar produk
-                let img = document.createElement('img')
-                img.src = produk.img
-                img.width = "220"
-                img.height = "150"
-                // img.style.objectFit = "cover"
-                card.appendChild(img)
-
-                // memasukkan nama produk
-                let nama = document.createElement('span')
-                nama.classList.add('nama-barang')
-                nama.innerHTML = `<b>${produk.namaProduk}</b>`
-                card.appendChild(nama)
-
-                // memasukkan harga produk
-                let harga = document.createElement('span')
-                harga.classList.add('harga-barang') // !! Butuh class baru
-                harga.innerHTML = `<b>${produk.harga}</b>`
-                card.appendChild(harga)
-
-                // bikin hot item
-                let stok = document.createElement('span')
-                stok.classList.add('stok-barang') // 
-
-                cards.appendChild(card)
+                getProducts(daftarProduk)
             }
         }
         else if (data == 'Baju Wanita') {
             if (produk.tipe === 'Baju' && produk.gender == 2) {
-                console.log(produk.tipe)
-                // membuat card
-                let card = document.createElement("div")
-                card.classList.add("card")
-                card.setAttribute("id", produk.id)
-
-                // memasukkan gambar produk
-                let img = document.createElement('img')
-                img.src = produk.img
-                img.width = "220"
-                img.height = "150"
-                // img.style.objectFit = "cover"
-                card.appendChild(img)
-
-                // memasukkan nama produk
-                let nama = document.createElement('span')
-                nama.classList.add('nama-barang')
-                nama.innerHTML = `<b>${produk.namaProduk}</b>`
-                card.appendChild(nama)
-
-                // memasukkan harga produk
-                let harga = document.createElement('span')
-                harga.classList.add('harga-barang') // !! Butuh class baru
-                harga.innerHTML = `<b>${produk.harga}</b>`
-                card.appendChild(harga)
-
-                // bikin hot item
-                let stok = document.createElement('span')
-                stok.classList.add('stok-barang') // 
-
-                cards.appendChild(card)
+                getProducts(daftarProduk)
+            }
+        }
+        else if (data == 'Baju Wanita Pria') {
+            if (produk.tipe === 'Baju' && (produk.gender == 2 || produk.gender == 1 || produk.gender == 0)) {
+                getProducts(daftarProduk)
             }
         }
     }
-
 }
 
 
@@ -222,7 +189,12 @@ function searchProduct(searchTerm) {
         return produk.namaProduk.toLowerCase().includes(searchTerm.toLowerCase());
     });
     clearData()
-    for (produk of filteredProducts) {
+    ambilProduk(filteredProducts)
+}
+
+
+function getProducts(daftarProduk) {
+    for (produk of daftarProduk) {
         // membuat card
         let card = document.createElement("div")
         card.classList.add("card")
@@ -239,19 +211,60 @@ function searchProduct(searchTerm) {
         // memasukkan nama produk
         let nama = document.createElement('span')
         nama.classList.add('nama-barang')
-        nama.innerHTML = `<b>${produk.namaProduk}</b>`
+        nama.innerHTML = `<b>${produk.namaProduk}</b>` // !! bold mendingan masuk ke class ga sih?
         card.appendChild(nama)
+
+        // memasukkan penjual
+        let penjual = document.createElement('span')
+        penjual.classList.add('penjual')
+        penjual.innerText = `Penjual: ${produk.penjual}`
+        card.appendChild(penjual)
 
         // memasukkan harga produk
         let harga = document.createElement('span')
-        harga.classList.add('harga-barang') // !! Butuh class baru
-        harga.innerHTML = `<b>${produk.harga}</b>`
+        harga.classList.add('harga')
+        let hargaString = String(produk.harga)
+        if (hargaString.length > 3) {
+            let hargaStringDenganTitik = '';
+            let moduloTiga = hargaString.length % 3;
+            for (let i = 1; i <= hargaString.length; i++) {
+                if (i % 3 === moduloTiga & i !== hargaString.length) {
+                    hargaStringDenganTitik += hargaString[i - 1] + '.';
+                } else {
+                    hargaStringDenganTitik += hargaString[i - 1];
+                }
+            }
+            hargaString = hargaStringDenganTitik;
+        }
+
+        harga.innerText = `Rp ${hargaString},00`
         card.appendChild(harga)
 
-        // bikin hot item
+        // memasukkan stok item
         let stok = document.createElement('span')
-        stok.classList.add('stok-barang') // 
+        stok.classList.add('stock') // 
+        stok.innerText = `Stok: ${produk.stock}`
+        card.appendChild(stok)
 
+
+        // memasukkan tombol 'langsung beli' dan 'tambah keranjang'
+        let buttonCard = document.createElement('div')
+
+        let langsungBeli = document.createElement('button')
+        langsungBeli.classList.add('button') // belom ada class button
+        langsungBeli.setAttribute("id", `buttonLangsungBeli-${produk.id}`)
+        langsungBeli.innerText = 'Langsung Beli'
+        buttonCard.appendChild(langsungBeli)
+
+        let tambahKeranjang = document.createElement('button')
+        tambahKeranjang.classList.add('button')
+        tambahKeranjang.setAttribute("id", `buttonTambahKeranjang-${produk.id}`)
+        tambahKeranjang.innerText = 'Tambah Keranjang'
+        buttonCard.appendChild(tambahKeranjang)
+
+        card.appendChild(buttonCard) // tombol ga ada jarak
+
+        // memasukkan card ke dalam cards
         cards.appendChild(card)
     }
 }
