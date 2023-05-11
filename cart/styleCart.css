@@ -26,6 +26,8 @@ body{
     position: fixed; /* Set the navbar to fixed position */
     top: 0; /* Position the navbar at the top of the page */
     width: 80vw; /* Full width */
+    box-shadow: 0px 0px 10px #DBA39A;
+    color: black;
 }
 
 #logo{
@@ -71,12 +73,18 @@ body{
 }
 
 .button{
-    background-color: #DFFFD8;
+    background-color: #FEFCF3;
+    border: none;
+    width: 90px;
+    height: 33px;
+    margin: 10px;
     
 }
 
 .button:hover{
-    background-color: white;
+    background-color: whitesmoke;
+    cursor: pointer;
+    border: 2px solid #DBA39A;
 }
 
 .magnifier{
@@ -141,10 +149,26 @@ body{
     height: 100%;
 }
 
+.detail-checkout{
+    width: 100%;
+
+}
+
+.header{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+}
+
+.instant-checkout{
+    align-self: flex-end;
+    /* color: #DBA39A; */
+    background-color: red;
+}
 
 table.table-struk {
     margin: 10px;
-    width: 70%;
+    width: 100%;
     font-size: 25px;
     /* height: 100%; */
     /* border: 1px solid black; */
@@ -210,8 +234,12 @@ img{
 .detail-pembayaran{
     
     display: flex;
-    flex-direction: column;
-    width: 50%;
+    flex-direction: row;
+    width: 100%;
+}
+
+.form{
+    border-right: 2px solid black;
 }
 
 .container-cards-p{
@@ -221,6 +249,7 @@ img{
 form{
     font-size: 20px;
     font-weight: bold;
+    margin: 50px;
 }
 
 .form-label{
@@ -239,4 +268,19 @@ textarea{
 
 .radio-button-form{
     margin: 20px;
+}
+
+.print-out{
+    width: 1000px;
+    align-items: center;
+    flex-direction: column;
+}
+
+.aturan-bayar{
+    margin-left: 20px;
+}
+
+.text-bayar{
+    margin: 20px;
+    font-size: 25px;
 }
