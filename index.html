@@ -1,8 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
+    <html lang="en">
 
 
-    <head>
+        <head>
+            <meta charset="UTF-8">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Document</title>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+            <link rel="stylesheet" href="style.css">
+            <link rel="preconnect" href="https://fonts.googleapis.com">
+            <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+            <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&display=swap"
+                rel="stylesheet">
+        </head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,68 +24,88 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&display=swap" rel="stylesheet">
-    </head>
+        </head>
 
-    <body>
-        <div class="container">
-            <div class="top">
-                <div id="logo">
-                    <i class="fa-solid fa-shirt fa-4x" style="color: #dba39a;" id="logo-hacktiv"></i>
-                </div>
-                <div id="brand">
-                    <p>JUAL<br></p>
-                    <p>BAJU</p>
-                </div>
-                <div id="search-bar">
-                    <input type="text" placeholder="Search" id="text-search">
-                    <!-- <button class="button-search">Search</button> -->
-                    <i id="searchButton" id="searchButton" class="fa-solid fa-magnifying-glass fa-3x magnifier"
-                        style="color: #dba39a;"></i>
-                </div>
-                <div id="cart">
-                    <a href="cart/cart.html"><i class="fa-solid fa-cart-shopping fa-4x" id="shopping-cart"
-                            style="color: #dba39a;"></i></a>
-                </div>
-            </div>
-        </div>
-        <div class="body">
-            <div class="filter">
-                <div class="filter-list">
-                    <ul>
-                        <li class="filter-judul bold">Pria</li>
-                        <ul>
-                            <li><label><input type="checkbox" id="priaAtasan" />Atasan</label></li>
-                            <li><label><input type="checkbox" id="priaBawahan" />Bawahan</label></li>
-                        </ul>
-                        <li class="filter-judul bold">Wanita</li>
-                        <ul>
-                            <li><label><input type="checkbox" id="wanitaAtasan" />Atasan</label></li>
-                            <li><label><input type="checkbox" id="wanitaBawahan" />Bawahan</label></li>
-                        </ul>
-                    </ul>
-                </div>
-            </div>
-            <div class="container-cards-p">
-                <p>
-                    Searched for: <a id="term-search1">Pria</a> <a id="term-search"><a id="term-search2">Celana Pria</a>
-                </p>
-                <div class="cards" id="cards">
-                    <div class="card">
-                        <img src="apel.jpg" alt="" width="220px" height="150px" class="imgProduk">
-                        <span class="nama-barang"><b>Apel Bagus</b> </span>
-                        <span class="penjual">Penjual: Mang Dadang</span>
-                        <span class="harga">Rp. 8000,00</span>
-                        <span class="stock">Stock : 3</span>
-                        <div class="button-card">
-                            <button class="button">Langsung Beli</button>
-                            <button class="button">Tambah Keranjang</button>
+        <body>
+            <div class="container">
+                <div class="top">
+                    <div id="logo">
+                        <i class="fa-solid fa-shirt fa-4x" style="color: #dba39a;" id="logo-hacktiv"></i>
+                    </div>
+                    <div id="brand">
+                        <p>JUAL<br></p>
+                        <p>BAJU</p>
+                    </div>
+                    <div id="search-bar">
+                        <input type="text" placeholder="Search" id="text-search">
+                        <!-- <button class="button-search">Search</button> -->
+                        <i id="searchButton" id="searchButton" class="fa-solid fa-magnifying-glass fa-3x magnifier"
+                            style="color: #dba39a;"></i>
+                    </div>
+                    <div id="cart">
+                        <a href="cart/cart.html"><i class="fa-solid fa-cart-shopping fa-4x" id="shopping-cart"
+                                style="color: #dba39a;"></i></a>
+                        <div class="container">
+                            <div class="top">
+                                <div id="logo">
+                                    <i class="fa-solid fa-shirt fa-4x" style="color: #dba39a;" id="logo-hacktiv"></i>
+                                </div>
+                                <div id="brand">
+                                    <p>JUAL<br></p>
+                                    <p>BAJU</p>
+                                </div>
+                                <div id="search-bar">
+                                    <input type="text" placeholder="Search" id="text-search">
+                                    <!-- <button class="button-search">Search</button> -->
+                                    <i id="searchButton" id="searchButton"
+                                        class="fa-solid fa-magnifying-glass fa-3x magnifier"
+                                        style="color: #dba39a;"></i>
+                                </div>
+                                <div id="cart">
+                                    <a href="cart/cart.html"><i class="fa-solid fa-cart-shopping fa-4x"
+                                            id="shopping-cart" style="color: #dba39a;"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="body">
+                            <div class="filter">
+                                <div class="filter-list">
+                                    <ul>
+                                        <li class="filter-judul bold">Pria</li>
+                                        <ul>
+                                            <li><label><input type="checkbox" id="priaAtasan" />Atasan</label></li>
+                                            <li><label><input type="checkbox" id="priaBawahan" />Bawahan</label></li>
+                                        </ul>
+                                        <li class="filter-judul bold">Wanita</li>
+                                        <ul>
+                                            <li><label><input type="checkbox" id="wanitaAtasan" />Atasan</label></li>
+                                            <li><label><input type="checkbox" id="wanitaBawahan" />Bawahan</label></li>
+                                        </ul>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="container-cards-p">
+                                <p>
+                                    Searched for: <a id="term-search1">Pria</a> <a id="term-search"><a
+                                            id="term-search2">Celana Pria</a>
+                                </p>
+                                <div class="cards" id="cards">
+                                    <div class="card">
+                                        <img src="apel.jpg" alt="" width="220px" height="150px" class="imgProduk">
+                                        <span class="nama-barang"><b>Apel Bagus</b> </span>
+                                        <span class="penjual">Penjual: Mang Dadang</span>
+                                        <span class="harga">Rp. 8000,00</span>
+                                        <span class="stock">Stock : 3</span>
+                                        <div class="button-card">
+                                            <button class="button">Langsung Beli</button>
+                                            <button class="button">Tambah Keranjang</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
-        </div>
-        <script src="index.js"></script>
-    </body>
+                    <script src="index.js"></script>
+        </body>
 
-</html>
+    </html>
