@@ -51,6 +51,9 @@ const checkboxPria = document.getElementById('cekBajuPria');
 const checkboxWanita = document.getElementById('cekBajuWanita');
 const searchButton = document.getElementById("searchButton");
 const searchText = document.getElementById("text-search");
+const modalButton = document.getElementById("buttonPromo")
+const modal = document.getElementById("modalPromo")
+const close = document.getElementsByClassName("close")[0]
 
 ambilProduk(daftarProduk);
 
@@ -292,4 +295,13 @@ function createCards() {
 
     // memasukkan card ke dalam cards
     cards.appendChild(card)
+}
+
+modalButton.addEventListener('click', function(){
+    // modal.style.display = "block"
+    console.log('test')
+})
+
+close.click = function(){
+    modal.style.display = "none"
 }
