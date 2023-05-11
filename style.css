@@ -243,3 +243,69 @@ img {
     align-self: flex-start;
     margin: 0px 0px 10px 32px;
 }
+
+#button-promo{
+    height: 45px;
+}
+
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    justify-content: space-around;
+}
+
+.modal-1{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    text-align: center;
+    align-items: center;
+    width: 100%;
+}
+
+.modal-1 p{
+    font-size: 16px;
+    /* margin-left: 15px; */
+    font-weight: bold;
+}
+
+.modal1{
+    margin: 20px;
+    /* align-items: center; */
+
+}
+
+.parafPromo{
+    margin-left: 20px;
+}
+
+.modal-content {
+    background-color: #FEFCF3;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 820px;
+}
+  
+.close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+  
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}

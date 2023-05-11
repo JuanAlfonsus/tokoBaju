@@ -35,7 +35,7 @@
                 <div class="detail-checkout">
                     <div class="header">
                         <h2 style="font-size: 30px;">Detail Checkout</h2>
-                        <h2 style="font-size: 30px; margin-left: 20px;"><a href="#detail-pembayaran">Langsung Bayar!</a></h2>
+                        <h2 style="font-size: 30px; margin-left: 20px;"><a href="#grand-total">Langsung Bayar!</a></h2>
                     </div>
                     <table class="table-struk">
                         <tr>
@@ -53,7 +53,7 @@
                 <div class="detail-pembayaran" id="detail-pembayaran">
                     <div class="form">
                         <h2 style="font-size: 30px;">Detail Pembayaran</h2>
-                        <form action="/">
+                        <form>
                             <!-- <label for="nama-pembeli">Nama : </label> -->
                             <label>Nama</label><br>
                             <input type="text" placeholder="Masukkan Nama" class="form-label"><br>
@@ -66,22 +66,70 @@
                             <label><input type="radio" name="kurir" id="jnt" class="radio-button-form">JNT</label><br>
                             <!-- <input type="radio" name="test" id="JnT" class="radio-button-form">JnT -->
                             <label>Pilih Metode Pembayaran :</label> <br>
-                            <label><input type="radio" name="pembayaran" id="bca" class="radio-button-form">BANK BCA</label>
-                            <label><input type="radio" name="pembayaran" id="mandiri" class="radio-button-form">BANK Mandiri</label>
-                            <label><input type="radio" name="pembayaran" id="qrcode" class="radio-button-form">QR Code</label><br>
-                            <button type="submit" class="button">BAYAR!</button>
+                            <label><input type="radio" name="pembayaran" id="bca" class="radio-button-form" value="bca" checked="checked">BANK BCA</label>
+                            <label><input type="radio" name="pembayaran" id="mandiri" class="radio-button-form" value="mandiri">BANK Mandiri</label>
+                            <label><input type="radio" name="pembayaran" id="qrcode" class="radio-button-form" value="qrcode">QR Code</label><br>
                         </form>
+                        <button type="submit" class="button" id="button-bayar">BAYAR!</button>
                     </div>
-                    <div class="instruksi-bayar">
-                        <h2 style="font-size: 30px;" class="aturan-bayar">Silahkan ikuti prosedur bayar</h2>
-                        <p class="text-bayar">1. Buka aplikasi yang menyediakan QRIS</p>
-                        <p class="text-bayar">2. Scan QRCode dikanan ini dengan kamera hp</p>
-                        <p class="text-bayar">3. Tekan bayar pada layar HP kalian</p>
+                    <div class="instruksi-tampil" id="instruksi-qrcode" style="display: none;">
+                        <div class="instruksi-bayar">
+                            <h2 style="font-size: 30px;" class="aturan-bayar">Silahkan ikuti prosedur bayar QRIS</h2>
+                            <p class="text-bayar">1. Buka aplikasi yang menyediakan QRIS</p>
+                            <p class="text-bayar">2. Scan QRCode dikanan ini dengan kamera hp</p>
+                            <p class="text-bayar">3. Tekan bayar pada layar HP kalian</p>
+                        </div>
+                        <div class="gambar-bayar">
+                            <img src="../produk/qrcode.png" alt="" width="300px" height="300px">
+                        </div>
+                    </div>
+                    <div class="instruksi-tampil" style="display: none;" id="instruksi-bca">
+                        <div class="instruksi-bayar">
+                            <h2 style="font-size: 30px;" class="aturan-bayar">Silahkan ikuti prosedur bayar BCA</h2>
+                            <p class="text-bayar">1. Buka menu Transfer Digital</p>
+                            <p class="text-bayar">2. Masukkan nomor rekening <b>1239871839271</b> BCA</p>
+                            <p class="text-bayar">3. Pastikan nomor rekening sudah sesuai dan klik transfer</p>
+                        </div>
+                        <div class="gambar-bayar">
+                            <img src="../bca.png" alt="" width="300px" height="300px">
+                        </div>
+                    </div>
+                    <div class="instruksi-tampil" style="display: none;" id="instruksi-mandiri">
+                        <div class="instruksi-bayar">
+                            <h2 style="font-size: 30px;" class="aturan-bayar">Silahkan ikuti prosedur bayar MANDIRI</h2>
+                            <p class="text-bayar">1. Buka menu Transfer Digital</p>
+                            <p class="text-bayar">2. Masukkan nomor rekening <b>1239871839271</b> MANDIRI</p>
+                            <p class="text-bayar">3. Pastikan nomor rekening sudah sesuai dan klik transfer</p>
+                        </div>
+                        <div class="gambar-bayar">
+                            <img src="../mandiri.png" alt="" width="300px" height="300px">
+                        </div>
                     </div>
                     <div class="gambar-bayar">
-                        <img src="../produk/qrcode.png" alt="" width="300px" height="300px">
+                        <img src="" alt="" width="300px" height="300px" style="display: none;">
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal" id="modal-promo">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h3 style="font-size: 40px; text-align: center;">SELAMAT KAMU DAPAT HADIAH</h3>
+            <div class="modal1" id="100k" style="display: none;">
+                <p>BELANJAAN DIATAS <b>RP 100.000,00</b></p>
+                <img src="../hadiah/mugpolos.jpg" width="150px" height="150px">
+                <p>MUG POLOS</p>
+            </div>
+            <div class="modal1" id="200k" style="display: none;">
+                <p>BELANJAAN DIATAS <b>RP 200.000,00</b></p>
+                <img src="../hadiah/topi.jpg" width="150px" height="150px">
+                <p>TOPI HITAM</p>
+            </div>
+            <div class="modal1" id="300k" style="display: none;">
+                <p>BELANJAAN DIATAS <b>RP 300.000,00</b></p>
+                <img src="../hadiah/payung-buah.jpg" width="150px" height="150px">
+                <p>PAYUNG ALPUKAT</p>
             </div>
         </div>
     </div>
