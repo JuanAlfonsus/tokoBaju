@@ -3,6 +3,7 @@ body{
     box-sizing: border-box;
     padding: 20px;
     font-family: 'Roboto Condensed', sans-serif;
+    width: 100vw;
 }
 
 .container{
@@ -11,6 +12,7 @@ body{
     margin: 0 auto;
     display: block;
     overflow: auto;
+    width: 80vw;
 }
 
 .top{
@@ -20,7 +22,10 @@ body{
     background-color: #F5EBE0;
     justify-content: space-around;
     border-radius: 20px;
-    
+    overflow: hidden;
+    position: fixed; /* Set the navbar to fixed position */
+    top: 0; /* Position the navbar at the top of the page */
+    width: 80vw; /* Full width */
 }
 
 #logo{
@@ -32,7 +37,7 @@ body{
 }
 
 #brand{
-    margin-right: 150px;
+    margin-right: 10px;
 }
 
 #logo-hacktiv{
@@ -57,12 +62,35 @@ body{
     padding: 6px;
     border: none;
     /* margin-top: 8px; */
-    /* margin-right: 16px; */
+    margin-right: 16px;
     background-color: #F5EBE0;
     border-radius: 20px;
     border: 2px solid #DBA39A;
-    font-size: 17px;
+    font-size: 20px;
     width: 90%;
+}
+
+.button{
+    background-color: #F5EBE0;
+    border: none;
+    width: 90px;
+    height: 33  px;
+}
+
+.button:hover{
+    background-color: whitesmoke;
+    cursor: pointer;
+    border: 2px solid #DBA39A;
+}
+
+.magnifier{
+    position: absolute;
+    margin-top: 15px;
+    margin-left: 590px;
+}
+
+.magnifier:hover{
+    cursor: pointer;
 }
 
 .button-search{
@@ -72,6 +100,7 @@ body{
     padding: 0;
     border-radius: 20px;
     /* margin-left: 10px; */
+    background-color: #FEFCF3;
 }
 
 #cart{
@@ -89,14 +118,13 @@ body{
 }
 
 .body{
-    margin-top: 20px;
+    margin-top: 90px;
     display: flex;
     flex-direction: row;
     width: 100%;
     /* height: 70%; */
     background-color: #F5EBE0;
     border-radius: 20px;
-    
 }
 
 .fa-cog{
@@ -110,7 +138,14 @@ ul{
 ul, li { /* reset the margin and padding */
     margin: 5px;
     padding: 0;
-    font-size: 15px;
+    font-size: 20px;
+}
+
+#searched-text{
+    color: black;
+    opacity: 0.75;
+    /* width: 2000px; */
+    /* height: 2000px; */
 }
 
 .filter-judul{
@@ -127,10 +162,15 @@ ul, li { /* reset the margin and padding */
 
 .filter-list{
     display: flex;
+    flex-direction: column;
+}
+
+.container-cards-p{
+    width: 100%;
 }
 
 .cards{
-    margin: 20px 20px 20px 0px;
+    margin: 17px 20px 20px 0px;
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
@@ -144,8 +184,8 @@ ul, li { /* reset the margin and padding */
     flex-direction: column;
     flex-wrap: wrap;
     width: 280px;
-    height: 350px;
-    background-color: red;
+    height: 380px;
+    /* background-color: red; */
     /* justify-content: center; */
     align-items: center;
     background-color: #FEFCF3;
@@ -155,6 +195,8 @@ ul, li { /* reset the margin and padding */
 
 .card:hover{
     box-shadow: 12px 12px 5px #DBA39A;
+    transition: all 0.5s ease;
+    /* width: 22%; */
 }
 
 img{
@@ -163,7 +205,15 @@ img{
     border: 2px solid #DBA39A;
 }
 
+/* img:hover{
+    width: 230px;
+    height: 160px;
+    box-shadow: 7px 7px 3px #DBA39A;
+    transition: all 1s ease;
+} */
+
 .nama-barang{
+    position: static;
     align-self: flex-start;
     margin: 0px 0px 10px 32px;
 }

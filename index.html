@@ -8,8 +8,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="container">
@@ -23,7 +23,8 @@
             </div>
             <div id="search-bar">
                 <input type="text" placeholder="Search" id="text-search">
-                <button class="button-search">Search</button>
+                <!-- <button class="button-search">Search</button> -->
+                <i class="fa-solid fa-magnifying-glass fa-3x magnifier" style="color: #dba39a;"></i>
             </div>
             <div id="cart">
                 <a href="cart/cart.html"><i class="fa-solid fa-cart-shopping fa-4x" id="shopping-cart" style="color: #dba39a;"></i></a>
@@ -35,32 +36,35 @@
                     <ul>
                         <li class="filter-judul"><b>Baju</b></li>
                         <ul>
-                            <li><input type="checkbox">Baju Pria</li>
-                            <li><input type="checkbox">Baju Wanita</li>
+                            <li><label><input type="checkbox" />Baju Pria</label></li>
+                            <li><label><input type="checkbox" />Baju Wanita</label></li>
                         </ul>
                         <li class="filter-judul"><b>Celana</b></li>
                         <ul>
-                            <li><input type="checkbox">Celana Pria</li>
-                            <li><input type="checkbox">Celana Wanita</li>
+                            <li><label><input type="checkbox" />Celana Pria</label></li>
+                            <li><label><input type="checkbox" />Celana Wanita</label></li>
                         </ul>
                         <li class="filter-judul"><b>Jaket</b></li>
                         <ul>
-                            <li><input type="checkbox">Jaket Pria</li>
-                            <li><input type="checkbox">Jaket Wanita</li>
+                            <li><label><input type="checkbox" />Jaket Pria</label></li>
+                            <li><label><input type="checkbox" />Jaket Wanita</label></li>
                         </ul>
                     </ul>
                 </div>
             </div>
-            <div class="cards" id="cards">
-                <div class="card">
-                    <img src="apel.jpg" alt="" width="220px" height="150px">
-                    <span class="nama-barang"><b>Apel Bagus</b> </span>
-                    <span class="penjual">Penjual: Mang Dadang</span>
-                    <span class="harga">Rp. 8000,00</span>
-                    <span class="stock">Stock : 3</span>
-                    <div class="button-card">
-                        <button class="button">Langsung Beli</button>
-                        <button class="button">Tambah Keranjang</button>
+            <div class="container-cards-p">
+                <p>Searched for: Baju Pria, Celana Pria</p>
+                <div class="cards" id="cards">
+                    <div class="card">
+                        <img src="apel.jpg" alt="" width="220px" height="150px" class="imgProduk"> 
+                        <span class="nama-barang"><b>Apel Bagus</b> </span>
+                        <span class="penjual">Penjual: Mang Dadang</span>
+                        <span class="harga">Rp. 8000,00</span>
+                        <span class="stock">Stock : 3</span>
+                        <div class="button-card">
+                            <button class="button">Langsung Beli</button>
+                            <button class="button">Tambah Keranjang</button>
+                        </div>
                     </div>
                 </div>
             </div>
