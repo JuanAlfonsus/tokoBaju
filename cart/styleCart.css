@@ -161,7 +161,7 @@ body{
 }
 
 .instant-checkout{
-    align-self: flex-end;
+    align-self: flex-center;
     /* color: #DBA39A; */
     background-color: red;
 }
