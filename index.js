@@ -55,6 +55,8 @@ const searchButton = document.getElementById("searchButton");
 const searchText = document.getElementById("text-search");
 const searchTerm1 = document.getElementById('term-search1')
 const searchTerm2 = document.getElementById('term-search2')
+
+
 let checkboxfilter = []
 
 ambilProduk(daftarProduk);
@@ -408,3 +410,23 @@ function createCards() {
     // memasukkan card ke dalam cards
     cards.appendChild(card)
 }
+
+const buttonPromo = document.getElementById('button-promo')
+const modalPromo = document.getElementById('modal-promo')
+const close = document.getElementsByClassName('close')[0]
+
+buttonPromo.addEventListener('click', function(){
+    // console.log('test')
+    modalPromo.style.display = "block";
+})
+
+close.addEventListener('click', function(){
+    // console.log('test')
+    modalPromo.style.display = "none";
+})
+
+window.onclick = function(event) {
+    if (event.target == modalPromo) {
+        modalPromo.style.display = "none";
+    }
+  }
