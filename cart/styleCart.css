@@ -201,3 +201,42 @@ img{
     margin-top: 20px;
     margin-bottom: 20px;
 }
+
+.pembatas{
+    border-top: 2px solid black;
+    box-shadow: 5px 5px 3px #DBA39A;
+}
+
+.detail-pembayaran{
+    
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+
+.container-cards-p{
+    width: 100%;
+}
+
+form{
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.form-label{
+    width: 90%;
+    height: 30px;
+    font-size: 20px;
+    margin: 10px;
+}
+
+textarea{
+    resize: none;
+    margin: 10px;
+    font-size: 20px;
+    width: 90%;
+}
+
+.radio-button-form{
+    margin: 20px;
+}
