@@ -67,38 +67,66 @@ function buatStruk(isiKeranjang) {
 
 buatStruk(isiKeranjang);
 
-// const radioButton = document.querySelector('input[name="pembayaran"]:checked').value
+
+// membuat function pada radio button
+
 const buttonBayar = document.getElementById('button-bayar')
 const instruksiBca = document.getElementById('instruksi-bca')
 const instruksiQrcode = document.getElementById('instruksi-qrcode')
 const instruksiMandiri = document.getElementById('instruksi-mandiri')
+let metodeBayar = ''
+let kurir = ''
 
 
 document.getElementById('button-bayar').onclick = function(){
-    radioButton = document.getElementsByName('pembayaran')
+    let radioButton = document.getElementsByName('pembayaran')
     for(button of radioButton){
         if(button.checked){
-            console.log(button.id)
             if(button.id == "bca"){
                 instruksiBca.style.display = "block"
                 instruksiQrcode.style.display = "none"
                 instruksiMandiri.style.display = "none"
+                metodeBayar = 'BCA'
             } else if(button.id == "mandiri"){
                 instruksiBca.style.display = "none"
                 instruksiQrcode.style.display = "none"
                 instruksiMandiri.style.display = "block"
+                metodeBayar = 'Mandiri'
             } else if(button.id == "qrcode"){
                 instruksiBca.style.display = "none"
                 instruksiQrcode.style.display = "block"
                 instruksiMandiri.style.display = "none"
+                metodeBayar = 'QRCODE'
             }
         }
     }
+    let radioKurir = document.getElementsByName('kurir')
+    for(button of radioKurir){
+        if(button.checked){
+            if(button.id == "jne"){
+                kurir = 'JNE'
+            } else if(button.id == "jnt"){
+                kurir = 'JNT'
+            }
+        }
+    }
+
 }
+
+// membuat function hadiah
 
 const modal100 = document.getElementById('100k')
 const modal200 = document.getElementById('200k')
 const modal300 = document.getElementById('300k')
+const strukBelanja  = document.getElementById('struk-belanja')
+const inputNama = document.getElementById('input-nama')
+const inputHp = document.getElementById('input-hp')
+const inputAlamat = document.getElementById('form-textarea')
+const strukNama = document.getElementById('struk-nama')
+const strukAlamat = document.getElementById('struk-alamat')
+const jenisPembayaran = document.getElementById('struk-jenis-pembayaran')
+const strukTotal = document.getElementById('struk-total')
+const strukKurir = document.getElementById('struk-kurir')
 
 buttonBayar.addEventListener('click', function(){
     if(pinjemGrandTotal > 100000){
@@ -113,6 +141,12 @@ buttonBayar.addEventListener('click', function(){
     } else if(pinjemGrandTotal > 100000){
         modal100.style.display = "block"
     }
+    strukBelanja.style.display = "block"
+    strukNama.innerHTML = inputNama.value
+    strukAlamat.innerHTML = inputAlamat.value
+    strukKurir.innerHTML = kurir
+    jenisPembayaran.innerHTML = metodeBayar
+    strukTotal.innerHTML = pinjemGrandTotal
 })
 
 const modalPromo = document.getElementById('modal-promo')
@@ -128,5 +162,7 @@ window.onclick = function(event) {
         modalPromo.style.display = "none";
     }
 }
+
+
 
 // console.log(pinjemGrandTotal)

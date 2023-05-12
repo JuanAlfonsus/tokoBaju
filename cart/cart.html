@@ -33,6 +33,7 @@
         <div class="body">
             <div class="checkout">
                 <div class="detail-checkout">
+                    <button class="button-hapus button">Hapus Cart</button>
                     <div class="header">
                         <h2 style="font-size: 30px;">Detail Checkout</h2>
                         <h2 style="font-size: 30px; margin-left: 20px;"><a href="#grand-total">Langsung Bayar!</a></h2>
@@ -56,9 +57,9 @@
                         <form>
                             <!-- <label for="nama-pembeli">Nama : </label> -->
                             <label>Nama</label><br>
-                            <input type="text" placeholder="Masukkan Nama" class="form-label"><br>
+                            <input type="text" placeholder="Masukkan Nama" class="form-label" id="input-nama"><br>
                             <label>No. Hp</label><br>
-                            <input type="text" placeholder="Masukkan Nama" class="form-label"><br>
+                            <input type="text" placeholder="Masukkan No. HP" class="form-label" id="input-hp"><br>
                             <label>Alamat</label><br>
                             <textarea name="form-textarea" id="form-textarea" cols="30" rows="5"></textarea><br>
                             <label>Pilih Kurir : </label><br>
@@ -66,8 +67,8 @@
                             <label><input type="radio" name="kurir" id="jnt" class="radio-button-form">JNT</label><br>
                             <!-- <input type="radio" name="test" id="JnT" class="radio-button-form">JnT -->
                             <label>Pilih Metode Pembayaran :</label> <br>
-                            <label><input type="radio" name="pembayaran" id="bca" class="radio-button-form" value="bca" checked="checked">BANK BCA</label>
-                            <label><input type="radio" name="pembayaran" id="mandiri" class="radio-button-form" value="mandiri">BANK Mandiri</label>
+                            <label><input type="radio" name="pembayaran" id="bca" class="radio-button-form" value="BCA" checked="checked">BANK BCA</label>
+                            <label><input type="radio" name="pembayaran" id="mandiri" class="radio-button-form" value="Mandiri">BANK Mandiri</label>
                             <label><input type="radio" name="pembayaran" id="qrcode" class="radio-button-form" value="qrcode">QR Code</label><br>
                         </form>
                         <button type="submit" class="button" id="button-bayar">BAYAR!</button>
@@ -80,7 +81,7 @@
                             <p class="text-bayar">3. Tekan bayar pada layar HP kalian</p>
                         </div>
                         <div class="gambar-bayar">
-                            <img src="../produk/qrcode.png" alt="" width="300px" height="300px">
+                            <img src="../produk/qrcode.png" alt="" width="300px" height="300px" class="img-logo">
                         </div>
                     </div>
                     <div class="instruksi-tampil" style="display: none;" id="instruksi-bca">
@@ -91,22 +92,44 @@
                             <p class="text-bayar">3. Pastikan nomor rekening sudah sesuai dan klik transfer</p>
                         </div>
                         <div class="gambar-bayar">
-                            <img src="../bca.png" alt="" width="300px" height="300px">
+                            <img src="../bca.png" alt="" width="300px" height="300px" class="img-logo">
                         </div>
                     </div>
                     <div class="instruksi-tampil" style="display: none;" id="instruksi-mandiri">
                         <div class="instruksi-bayar">
                             <h2 style="font-size: 30px;" class="aturan-bayar">Silahkan ikuti prosedur bayar MANDIRI</h2>
                             <p class="text-bayar">1. Buka menu Transfer Digital</p>
-                            <p class="text-bayar">2. Masukkan nomor rekening <b>1239871839271</b> MANDIRI</p>
+                            <p class="text-bayar">2. Masukkan nomor rekening <b>6267126123</b> MANDIRI</p>
                             <p class="text-bayar">3. Pastikan nomor rekening sudah sesuai dan klik transfer</p>
                         </div>
                         <div class="gambar-bayar">
-                            <img src="../mandiri.png" alt="" width="300px" height="300px">
+                            <img src="../mandiri.png" alt="" width="300px" height="300px" class="img-logo">
                         </div>
                     </div>
-                    <div class="gambar-bayar">
-                        <img src="" alt="" width="300px" height="300px" style="display: none;">
+                    <div class="struk" id="struk-belanja" style="display: none;">
+                        <h2 style="font-size: 30px; " >Detail Pembelian</h2>
+                        <table class="last-table">
+                            <tr>
+                                <td>Nama</td>
+                                <td id="struk-nama"></td>
+                            </tr>
+                            <tr>
+                                <td>Alamat</td>
+                                <td id="struk-alamat"></td>
+                            </tr>
+                            <tr>
+                                <td>Kurir</td>
+                                <td id="struk-kurir"></td>
+                            </tr>
+                            <tr>
+                                <td>Jenis Pembayaran</td>
+                                <td id="struk-jenis-pembayaran"></td>
+                            </tr>
+                            <tr>
+                                <td colspan="">Grand Total</td>
+                                <td id="struk-total"></td>
+                            </tr>
+                        </table>
                     </div>
                 </div>
             </div>
